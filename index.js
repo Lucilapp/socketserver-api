@@ -6,7 +6,7 @@ io = require('socket.io')(5000, {
 })
 io.on('connection', socket => {
     console.log(socket.id)
-    socket.on('messageSend', (sender, msg) => {
-        console.log(sender, msg)
+    socket.on('messageSend', (socketId, msg, reciever) => {
+        io.to(reciever).emit('recieveMessage', msg, socketId)
     })
 })
