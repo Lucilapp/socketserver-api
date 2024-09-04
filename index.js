@@ -1,8 +1,10 @@
 console.log('Server OK')
-io = require('socket.io')(5000, {
+io = require('socket.io')(5001, {
     cors:  {
         origin: ['http://localhost:8081/'],
         methods: ['GET', 'POST'],
+        allowedHeaders: ["sender"],
+        credentials: true,
     }
 })
 io.on('connection', socket => {
