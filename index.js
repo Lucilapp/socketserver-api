@@ -17,7 +17,7 @@ app.use((req, res, next) => {
 
 const io = socketIo(server, {
   cors:  {
-    origin: ['http://localhost:8081'],
+    origin: ['https://72b-lli-anonymous-8081.exp.direct'],
     methods: ['GET', 'POST'],
     allowedHeaders: ["sender"],
     credentials: true,
