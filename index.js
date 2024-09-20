@@ -2,8 +2,12 @@
 const express = require('express');
 const http = require('http');
 const socketIo = require('socket.io');
+const cors = require('cors');
 
 const app = express();
+app.use(cors({
+  origin: ['https://gxiibtm-anonymous-8081.exp.direct']
+}));
 
 const server = http.createServer(app);
 
@@ -17,7 +21,7 @@ app.use((req, res, next) => {
 
 const io = socketIo(server, {
   cors:  {
-    origin: ['https://72b-lli-anonymous-8081.exp.direct'],
+    origin: ['https://gxiibtm-anonymous-8081.exp.direct'],
     methods: ['GET', 'POST'],
     allowedHeaders: ["sender"],
     credentials: true,
