@@ -6,13 +6,13 @@ const cors = require('cors');
 
 const app = express();
 app.use(cors({
-  origin: ['https://gxiibtm-anonymous-8081.exp.direct']
+  origin: ['http://localhost:8081']
 }));
 
 const server = http.createServer(app);
 
 app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Origin", "http://localhost:8081");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
     next();
@@ -21,7 +21,7 @@ app.use((req, res, next) => {
 
 const io = socketIo(server, {
   cors:  {
-    origin: ['https://gxiibtm-anonymous-8081.exp.direct'],
+    origin: ['http://localhost:8081'],
     methods: ['GET', 'POST'],
     allowedHeaders: ["sender"],
     credentials: true,
