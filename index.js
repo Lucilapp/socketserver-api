@@ -34,7 +34,7 @@ io.on('connection', socket => {
   socket.on('messageSend', (socketId, msg, reciever) => {
     console.log(socketId, msg, reciever);
     io.emit('serverConnected');
-    // io.to(reciever).emit('recieveMessage', msg, socketId);
+    io.to(reciever).emit('recieveMessage', msg, socketId);
   });
 });
 
