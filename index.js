@@ -36,6 +36,10 @@ io.on('connection', socket => {
     io.emit('serverConnected');
     io.to(reciever).emit('recieveMessage', msg, socketId);
   });
+
+  socket.on('chatDisconnect', (socketId, reciever) => {
+    console.log(socketId + " disconnected");
+  });
 });
 
 server.listen(5001, () => {
