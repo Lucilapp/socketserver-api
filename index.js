@@ -38,7 +38,7 @@ io.on('connection', socket => {
   });
 
   socket.on('chatDisconnect', (socketId, reciever) => {
-    console.log(socketId + " disconnected");
+    io.to(reciever).emit('chatDisconnect')
   });
 });
 
